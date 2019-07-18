@@ -11,3 +11,26 @@ div#CategoryTable{
 div.pageDiv{
     text-align:center;
 }
+
+/*新增的样式*/
+div.addDiv{
+    width:400px;
+    margin:0px auto;
+}
+div.editDiv{
+    width:400px;
+    margin:0px auto;
+}
+table.addTable{
+    width:100%;
+}
+table.editTable{
+    width:100%;
+}
+table.editTable td{
+    padding:5px;
+}
+
+table.addTable td{
+    padding:5px;
+}

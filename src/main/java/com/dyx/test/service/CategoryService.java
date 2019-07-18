@@ -34,4 +34,9 @@ public class CategoryService {
         return new Page4Navigator<>(pageFromJPA,navigatePages);
     }
 
+    //新增分类
+    public void add(Category bean){
+        categoryDao.save(bean);
+    }
+
 }
