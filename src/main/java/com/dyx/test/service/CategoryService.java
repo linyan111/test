@@ -2,7 +2,11 @@ package com.dyx.test.service;
 
 import com.dyx.test.dao.CategoryDao;
 import com.dyx.test.pojo.Category;
+import com.dyx.test.util.Page4Navigator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -21,4 +25,13 @@ public class CategoryService {
         //按照JPA的方法来规范命名即可
         return categoryDao.findAll(sort);
     }
+
+   //带参数的list方法，分页
+    public Page4Navigator<Category> list(int start,int size,int navigatePages){
+        Sort sort = new Sort(Sort.Direction.DESC, "id");
+        Pageable pageable = new PageRequest(start,size,sort);
+        Page pageFromJPA = categoryDao.findAll(pageable);
+        return new Page4Navigator<>(pageFromJPA,navigatePages);
+    }
+
 }
